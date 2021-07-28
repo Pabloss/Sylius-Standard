@@ -33,3 +33,7 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+        
+    form.type_extension.color:
+        class: App\Form\ColorTypeExtension
+        tags: ['form.type_extension']

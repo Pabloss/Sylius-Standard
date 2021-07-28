@@ -1,0 +1,13 @@
+{% extends '@SyliusAdmin/Product/Tab/_details.html.twig' %}
+
+{% block color_choice_widget %}
+    {{ parent() }}
+    {{ block('form_widget') }}
+    {% if colors is not null %}
+        <select name="color">
+            {% for key,val in colors %}
+                <option value="{{ val }}" {{  form.color.vars == '' and key == 0 ? ' selected ' :(val == form.color.vars ? ' selected ' : '') }}>{{ val | trans }}</option>
+            {% endfor %}
+        </select>
+    {% endif %}
+{% endblock %}

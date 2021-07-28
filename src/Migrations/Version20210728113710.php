@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20210728105738 extends AbstractMigration
+final class Version20210728113710 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -20,13 +20,12 @@ final class Version20210728105738 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql("INSERT INTO sylius.sylius_product_attribute (code, type, storage_type, configuration, created_at, updated_at, position, translatable) VALUES ('color', 'text', 'text', 'a:0:{}', '2021-07-28 12:31:29', '2021-07-28 12:31:29', 14, 1)");
-        $this->addSql("INSERT INTO sylius.sylius_product_attribute_translation (translatable_id, name, locale) VALUES (15, 'Kolor', 'pl_PL')");
+        $this->addSql("ALTER TABLE sylius_product ADD colour varchar(255);");
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('');
+        $this->addSql("ALTER TABLE sylius_product DROP COLUMN colour;");
     }
 }
